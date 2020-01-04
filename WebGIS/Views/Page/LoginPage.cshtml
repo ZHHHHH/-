@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="~/frontend/css/zui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/frontend/css/Login.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/frontend/css/animate.min.css">
+    <link href="~/frontend/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/frontend/css/waitImage.css" />
+    <link rel="stylesheet" href="/frontend/css/waitImageForMask.css" />
+    <link rel="stylesheet" href="/frontend/css/webgis.css" />
+    <style>
+        body {
+            background-image: url(/frontend/icons/LoginBg.jpg);
+        }
+    </style>
+    <script src="~/frontend/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/Javascript" src="/frontend/js/config.js"></script>
+    <script src="~/frontend/js/tool/Messager.js"></script>
+    <script>
+        function showMash(tipText, callback) {
+            var mask = $('#maskDiv');
+            mask.css('width', $(document.body).width());
+            mask.css('height', "98%");
+            var maskloading = $('#loading-mask');
+            maskloading.css('top', (mask.height() - maskloading.height()) / 2);
+            maskloading.css('left', (mask.width() - maskloading.width()) / 2 - 20);
+            var maskTip = $('#maskTip');
+            if (tipText != null)
+                maskTip.text(tipText);
+            maskTip.css('top', (mask.height() - maskTip.height()) / 2 + maskloading.height() + 10);
+            maskTip.css('width', mask.width());
+            if (typeof (callback) != 'undefined')
+                mask.show(callback);
+            else
+                mask.show();
+            isMashShow = true;
+        }
+
+        function hideMash() {
+            $('#maskDiv').hide();
+            isMashShow = false;
+        }
+
+        function Login() {
+            var UserName = $('#UserName').val();
+            var Password = $('#Password').val();
+            var returnUrl = $('#returnUrl').val();
+            if (UserName == "" || Password == "") {
+                ShowMsg('登录信息不能为空！', 'warning');
+                return;
+            }
+            showMash("正在登录中......", function () {
+                $.post(LoginUrl, {
+                    "UserName": UserName,
+                    "Password": Password,
+                    "returnUrl": returnUrl
+                }, function (data) {
+                    hideMash();
+                    if (data.code == "0") {
+                        window.location.href = data.data;
+                    } else {
+                        ShowMsg(data.data, 'error');
+                    }
+                });
+            })
+        }
+
+        document.onkeydown = function (ev) {
+            var ev = window.event || ev;
+            if (ev.keyCode == 13) {
+                ev.returnValue = false;
+                ev.cancel = true;
+                Login();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="main-box"></div>
+    <div id="main-content">
+        <div class="login-body  animated fadeInLeft">
+            <div class="login-main pr">
+                <form class="login-form">
+                    <h3>WebGIS系统登录</h3>
+                    <!-- 账号登陆 -->
+                    <div id="MobileBox" class="item-box">
+                        <div class="input-group user-name">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" id="UserName" class="form-control" placeholder="用户名" AUTOCOMPLETE="OFF" />
+                        </div>
+                        <div class="input-group password">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" id="Password" class="form-control" placeholder="密码">
+                        </div>
+
+                        @*<div class="use-qrcode-a"><a class="use-ding" href="javascript:void(0)"><img src="ding.png" width="17" height="17" style="margin-top:-2px"> 钉钉账号登陆</a> </div>*@
+
+
+                        <div class="login_btn_panel">
+                            <button class=" btn btn-primary btn-block btn-lg"  type="button"  onclick="Login()">登录</button>
+                            <div class="check-tips"></div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="returnUrl" value="@TempData["returnUrl"]" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

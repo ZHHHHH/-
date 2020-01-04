@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EvaluateLog\**" />
+    <Compile Remove="wwwroot\Content\FeatureClass\**" />
+    <Compile Remove="wwwroot\frontend\lib\fontawesome-free-5.12.0-web\**" />
+    <Content Remove="EvaluateLog\**" />
+    <Content Remove="wwwroot\Content\FeatureClass\**" />
+    <Content Remove="wwwroot\frontend\lib\fontawesome-free-5.12.0-web\**" />
+    <EmbeddedResource Remove="EvaluateLog\**" />
+    <EmbeddedResource Remove="wwwroot\Content\FeatureClass\**" />
+    <EmbeddedResource Remove="wwwroot\frontend\lib\fontawesome-free-5.12.0-web\**" />
+    <None Remove="EvaluateLog\**" />
+    <None Remove="wwwroot\Content\FeatureClass\**" />
+    <None Remove="wwwroot\frontend\lib\fontawesome-free-5.12.0-web\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\WebGIS.db-shm" />
+    <Content Remove="wwwroot\WebGIS.db-wal" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="WebGisAfterend.v12.suo" />
+    <None Remove="WebGIS.v12.suo" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="wwwroot\Content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\常用业务词汇拼音首字母字典.xls" />
+    <None Include="wwwroot\DLL\AppLibrary.dll" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.js" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.js.map" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.min.js" />
+    <None Include="wwwroot\frontend\lib\bootstrap-4.3.1\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AppLibrary">
+      <HintPath>..\..\..\WebGIS\DLL\AppLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

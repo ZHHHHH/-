@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "系统设置";
+    Layout = "~/Views/Shared/_BootstrapNavBar.cshtml";
+}
+@section css{
+    <style>
+        table thead tr th {
+            text-align: center;
+            width: 6%
+        }
+
+        #ArbetTable tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        #ArbetTable th {
+            background: #efefef;
+        }
+    </style>
+    <link href="~/frontend/lib/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
+}
+@section javascript{
+    <script src="~/frontend/lib/bootstrap-table/bootstrap-table.js"></script>
+    <script type="text/Javascript" src="/frontend/lib/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="~/frontend/js/tool/boostrapTablePack.js"></script>
+    <script type="text/Javascript" src="/frontend/js/SystemConfig.js"></script>
+}
+
+<div class="row" style="height:100%">
+    <div class="col-2 shadow p-3  bg-white rounded" style="height:100%">
+        <h4 class="titleText" style="margin-top: 1px"><span class="badge badge-success"><span class="fa fa-list"></span></span> 参数配置表</h4>
+        <div class="list-group list-group-flush" id="listgroup" role="tablist" style="overflow-y:auto;height:95%">
+        </div>
+    </div>
+    <div class="col-10" style="overflow-y:auto;height:100%">
+        <table id='ArbetTable' style='text-align: center'></table>
+    </div>
+</div>
+<div id='toolbar'>
+    <button type="button" class="btn btn-success" onclick="InitModel(-1)">
+        <span class='fa fa-plus'></span> 增加
+    </button>
+</div>
+
+<!-- 增加规则模态框（Modal） -->
+<div class="modal fade bd-example-modal-lg" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalLabel">
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body" id='modalDiv'>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary" id='SubBtn' onclick="ChangeDataToDatabase()">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "首页";
+    Layout = "~/Views/Shared/_BootstrapNavBar.cshtml";
+}
+@section css{
+    <link rel="stylesheet" type="text/css" href="/arcgis_js_api/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/lib/zTree/css/metroStyle/metroStyle.css" />
+    <link rel="stylesheet" href="/frontend/css/webgis.css" />
+}
+@section javascript{
+    <script>
+        dojoConfig = {
+            parseOnLoad: true,
+            packages: [{
+                name: 'ext',
+                location: "/frontend/js/ext"
+            }]
+        };
+    </script>
+    <script type="text/Javascript" src="/arcgis_js_api/init.js"></script>
+    <script type="text/Javascript" src="/frontend/lib/zTree/js/jquery.ztree.all.min.js"></script>
+    <script type="text/Javascript" src="/frontend/js/webgis.js"></script>
+}
+<div class="row" style="height:100%">
+    <div class="col-2 shadow p-3 rounded-lg bg-light rounded-right border-right border-success" style="height:100%">
+        <h4 class="titleText" style="margin-top: 1px"><span class="badge badge-success"><span class="fa fa-layer-group"></span></span> 图层控制</h4>
+        <hr style="margin: 0px" />
+        <div id="toc" style="overflow-x:auto;overflow-y:auto;height:95%;width:100%"></div>
+    </div>
+    <div class="col-10" style="height:100%;padding:0 0 0 0 ">
+        <div id="mapDiv" style="height: 100%; width: 100%">
+            <div class="btn-toolbar" role="toolbar" id="buttonToolbar">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-success" id="zoomin">
+                            <img src="/frontend/icons/ZoomInTool16.png" alt="tall" width="16" height="16" /> 放大
+                        </button>
+                        <button type="button" class="btn btn-success" id="zoomout">
+                            <img src="/frontend/icons/ZoomOutTool16.png" alt="tall" width="16" height="16" /> 缩小
+                        </button>
+                        <button type="button" class="btn btn-success" id="pan">
+                            <img src="/frontend/icons/PanTool16.png" alt="tall" width="16" height="16" /> 平移
+                        </button>
+                        <button type="button" class="btn btn-success" id="zoomfull">
+                            <img src="/frontend/icons/ZoomFullExtent16.png" alt="tall" width="16" height="16" /> 全图
+                        </button>
+                        <button type="button" class="btn btn-success" id="lastextent">
+                            <img src="/frontend/icons/GenericBlueLeftArrowLongTail16.png" alt="tall" width="16" height="16" />
+                            前一视图
+                        </button>
+                        <button type="button" class="btn btn-success" id="nextextent">
+                            <img src="/frontend/icons/GenericBlueRightArrowLongTail16.png" alt="tall" width="16"
+                                 height="16" /> 后一视图
+                        </button>
+                        <button type="button" class="btn btn-success" id="attributeQuery">
+                            <i class='fa fa-search'></i>
+                            高级查询
+                        </button>
+                        <button type="button" class="btn btn-success" id="mapClickQuery">
+                            <i class='fa fa-search'></i>
+                            属性查询
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mapScale"></div>
+            <div id="mapPos"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+@import "/frontend/lib/font-awesome/css/font-awesome.min.css";
+
+.titleText {
+    color: transparent;
+    background-color: black;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 5px 6px, rgba(255, 255, 255, 0.2) 1px 3px 3px;
+    -webkit-background-clip: text;
+}
+
+select[class="attributeSelection"] {
+    margin: 10px 10px 10px 0px;
+    width: 70%;
+}
+
+.form-group {
+    margin: 10px 20px;
+}
+
+#buttonToolbar {
+    top: 10px;
+    left: 80px;
+    position: absolute;
+    z-index: 30;
+}
+
+#mapPos {
+    bottom: 3px;
+    right: 22px;
+    position: absolute;
+    z-index: 99;
+}
+
+#mapScale {
+    bottom: 5px;
+    left: 30px;
+    position: absolute;
+    z-index: 99;
+}
+
+#maskDiv {
+    position: absolute;
+    top: 5px;
+    filter: alpha(opacity=60);
+    background-color: whitesmoke;
+    z-index: 1999;
+    right: 5px;
+    width: 0px;
+    height: 0px;
+    opacity: 0.75;
+    -moz-opacity: 0.5;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#maskTip {
+    position: absolute;
+    text-align: center;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* .bs-chinese-region {
+    margin: 0px 10px;
+} */
+/* 
+#xzqlabel {
+    margin: 0px 10px;
+} */
+#overview_xzq_div {
+    top: 24px;
+    right: 60px;
+    width: 250px;
+    position: absolute;
+    z-index: 29;
+}
+
+#mapOpBtns {
+    top: 110px;
+    left: 23px;
+    position: absolute;
+    z-index: 30;
+}
+
+#tocMaximize {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    border-style: none;
+    background-color: transparent;
+    display: none;
+}
+#tocMaximize:hover{
+    color: blue;
+}

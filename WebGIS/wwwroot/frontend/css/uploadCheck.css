@@ -1,0 +1,77 @@
+@import "/frontend/lib/font-awesome/css/font-awesome.min.css";
+#opBtns .btn{
+    margin: 10px;
+    height: 40px;
+}
+i.fa.fa-info-circle.fa-lg{
+    color: rgb(0, 135, 212);    
+}
+i.fa.fa-check-circle.fa-lg{
+    color: rgb(46, 204, 113);
+}
+i.fa.fa-exclamation-circle.fa-lg{
+    color: red;
+}
+input[type="checkbox"].checkItem{
+    margin: 10px 5px 0 5px;
+    width: 15px;
+    height: 15px;
+    float: left;
+}
+.panel-body{
+    overflow-y: auto;
+    color: red;
+}
+.panel-heading{
+    cursor: pointer;
+}
+#maskDiv{
+    top: 0px;
+}
+.removeFile{
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+.fileName{
+    word-break: break-word;
+}
+.popover-content{
+    word-wrap: break-word;
+}
+
+.left-pannel{
+    height:100%;
+    width: 420px;
+    border-style:groove;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.right-pannel{
+    height:100%;
+    /* width: 100%; */
+    margin-left: 420px;
+    /* float: left; */
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    /* padding-left: 15px; */
+}
+
+.col-md-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#messageDiv, #tabControl{
+    float: left;
+    position: relative;
+    width: 100%;
+}
+#tabContent{
+    overflow-y: auto;
+}
