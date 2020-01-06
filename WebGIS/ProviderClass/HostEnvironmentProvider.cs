@@ -20,7 +20,7 @@
         /// <summary>
         /// 获取SQLite数据库连接字符串
         /// </summary>
-        public static string ConnectionStringForSQLite => "Data Source=" + WebRootPath + "/WebGIS.db";
+        public static string ConnectionStringForSQLite => "Data Source=" + ContentRootPath + "/Database/WebGIS.db";
 
         /// <summary>
         /// 获取评价记录存储根路径
