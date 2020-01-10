@@ -12,7 +12,7 @@ using WebGIS.ToolClass;
 
 namespace WebGIS.Controllers
 {
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class HomeController : ControllerBase
     {
         WebGISContext DbContext = DbContextProvider.dbContext as WebGISContext;

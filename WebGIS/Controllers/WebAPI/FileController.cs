@@ -11,7 +11,7 @@ using WebGIS.ToolClass;
 namespace WebGIS.Controllers.WebAPI
 {
     [Authorize]
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class FileController : ControllerBase
     {
         [HttpPost]
