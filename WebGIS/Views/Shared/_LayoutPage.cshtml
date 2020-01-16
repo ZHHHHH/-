@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/frontend/lib/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/frontend/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    @RenderSection("css", required: false)
+</head>
+<body>
+    <header>
+        @await Html.PartialAsync("Navigation")
+    </header>
+
+    <div class="container-fluid" style="height:93%">
+        @RenderBody()
+    </div>
+
+    <script type="text/Javascript" src="~/frontend/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/frontend/js/tool/UserVerify.js"></script>
+    <script type="text/Javascript" src="/frontend/js/config.js"></script>
+    <script src="~/frontend/js/tool/Messager.js"></script>
+    <script src="~/frontend/lib/popper/popper.min.js"></script>
+    <script type="text/Javascript" src="~/frontend/lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    @RenderSection("javascript", required: false)
+</body>
+</html>

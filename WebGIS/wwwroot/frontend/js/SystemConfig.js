@@ -1,5 +1,5 @@
 $(function () {
-    InitBoostrapTableParameter(systemConfig, GetSystemConfigDataUrl, DeleteSystemConfigDataUrl, CreateSystemConfigDataUrl, EditSystemConfigDataUrl, "Modal", "ModalLabel", "modalDiv", "ArbetTable", "toolbar");
+    InitBoostrapTableParameter(systemConfig, GetSystemConfigDataUrl, DeleteSystemConfigDataUrl, CreateSystemConfigDataUrl, EditSystemConfigDataUrl);
     InitParameterList();
 });
 
@@ -17,20 +17,14 @@ function InitParameterList() {
     for (var Name in systemConfig) {
         var iconHtml = "<span class='badge badge-success'><span class='" + systemConfig[Name].icon + "'></span></span> "
         if (FristRow) {
-            html += '<a href="#" class="list-group-item list-group-item-action active" role="tab" data-toggle="list" onclick="SelectChange(\'' + systemConfig[Name].tableName + '\',\'' + Name + '\')">' + iconHtml+ Name + '</a>'
+            html += '<a href="#" class="list-group-item list-group-item-action active" role="tab" data-toggle="list" onclick="SelectChange(\'' + systemConfig[Name].tableName + '\',\'' + Name + '\')">' + iconHtml + Name + '</a>'
             FristRow = false;
             TableName = systemConfig[Name].tableName;
             keyName = Name;
             InitMainTable(systemConfig[Name].tableName, systemConfig[Name].columns);
             continue;
         }
-        html += '<a href="#" class="list-group-item list-group-item-action" role="tab" data-toggle="list" onclick="SelectChange(\'' + systemConfig[Name].tableName + '\',\'' + Name + '\')">' + iconHtml+ Name + '</a>'
+        html += '<a href="#" class="list-group-item list-group-item-action" role="tab" data-toggle="list" onclick="SelectChange(\'' + systemConfig[Name].tableName + '\',\'' + Name + '\')">' + iconHtml + Name + '</a>'
     }
     $('#listgroup').html(html);
 }
-
-
-
-
-
-

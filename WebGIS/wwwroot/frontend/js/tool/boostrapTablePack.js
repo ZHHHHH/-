@@ -6,40 +6,29 @@ var rowId = '';
 var keyName = '';
 
 var ConfigData;
-
 var QueryDataUrl;
 var DeleteDataUrl;
 var CreateDataUrl;
 var EditDataUrl;
 
-var ModalElementID;
-var ModalLabelElementID;
-var ModalDivElementID;
-var ToolbarElementID;
-var TableElementID;
 
 //初始化全局参数
-function InitBoostrapTableParameter(_configData, _queryDataUrl,_deleteDataUrl, _createDataUrl, _editDataUrl, _modalElementID, _modalLabelElementID, _modalDivElementID, _tableElement, _toolbarElement) {
+function InitBoostrapTableParameter(_configData, _queryDataUrl, _deleteDataUrl, _createDataUrl, _editDataUrl) {
     ConfigData = _configData;
     QueryDataUrl = _queryDataUrl;
     DeleteDataUrl = _deleteDataUrl;
     CreateDataUrl = _createDataUrl;
     EditDataUrl = _editDataUrl;
-    ModalElementID = _modalElementID;
-    ModalLabelElementID = _modalLabelElementID;
-    ModalDivElementID = _modalDivElementID
-    TableElementID = _tableElement;
-    ToolbarElementID = _toolbarElement;
 }
 
 //初始化bootstrap-table的内容
 function InitMainTable(TableName, Columns) {
     //记录页面bootstrap-table全局变量$table，方便应用
-    $table = $('#' + TableElementID).bootstrapTable({
+    $table = $('#ArbetTable').bootstrapTable({
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         url: QueryDataUrl, //请求后台的URL（*）
         method: 'POST', //请求方式（*）
-        toolbar: '#' + ToolbarElementID, //工具按钮用哪个容器
+        toolbar: '#toolbar', //工具按钮用哪个容器
         striped: true, //是否显示行间隔色
         cache: true, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
         pagination: true, //是否显示分页（*）
@@ -96,7 +85,7 @@ function DeleteByIds(ID) {
             "ID": ID
         }, function (data) {
             ShowMiniNotice(data.data)
-            $('#' + ModalElementID).modal('hide');
+            $('#Modal').modal('hide');
             refreshTable();
         })
     });
@@ -127,7 +116,7 @@ function InitModel(rowID) {
             continue;
         }
         if (rowData != null) {
-            $('#' + ModalLabelElementID).text('编辑数据');
+            $('#ModalLabel').text('编辑数据');
             value = rowData[columns[key].field];
             if (value == null) {
                 value = '';
@@ -135,7 +124,7 @@ function InitModel(rowID) {
                 value = value.toString().trim();
             }
         } else {
-            $('#' + ModalLabelElementID).text('增加数据');
+            $('#ModalLabel').text('增加数据');
             value = '';
         }
         html += '<p class="text-muted">' + columns[key].title + ':</p>';
@@ -162,9 +151,9 @@ function InitModel(rowID) {
                 break;
         }
     }
-    $('#' + ModalDivElementID).html("");
-    $('#' + ModalDivElementID).html(html);
-    $('#' + ModalElementID).modal('show');
+    $('#modalDiv').html("");
+    $('#modalDiv').html(html);
+    $('#Modal').modal('show');
 }
 
 //向后台提交修改、新增数据
@@ -200,7 +189,7 @@ function ChangeDataToDatabase() {
             ShowMiniNotice(data.data, "error");
         } else {
             ShowMiniNotice(data.data)
-            $('#' + ModalElementID).modal('hide');
+            $('#Modal').modal('hide');
             refreshTable();
         }
     })

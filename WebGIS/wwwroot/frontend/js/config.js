@@ -3,7 +3,7 @@ var proxyUrl = 'DotNet/proxy.ashx';
 var gisUrl='localhost:6080';
 
 //坐标接口配置
-var afterendFileUrl ='/File/';
+var afterendFileUrl ='/api/File/';
 var afterendUploadMultiFilesUrl = afterendFileUrl + 'UploadMultiFiles';     //坐标上传接口
 var afterendGetGeometriesUrl = afterendFileUrl + 'GetGeometries';       //坐标读取返回json格式接口
 var afterendDeleteUploadUrl = afterendFileUrl + 'DeleteUpload';     //删除坐标接口
@@ -11,7 +11,7 @@ var afterendLoadExcelFileUrl = afterendFileUrl + 'LoadExcelFile';     //读取�
 
 
 //系统设置接口配置
-var SystemConfigUrl ='/SystemConfig/';
+var SystemConfigUrl ='/api/SystemConfig/';
 var GetSystemConfigDataUrl = SystemConfigUrl + 'GetSystemConfigData';     //获取字典数据接口
 var DeleteSystemConfigDataUrl = SystemConfigUrl + 'DeleteSystemConfigData';       //删除字典数据接口
 var EditSystemConfigDataUrl = SystemConfigUrl + 'EditSystemConfigData';       //修改字典数据接口
@@ -22,7 +22,7 @@ var LoadMapServicePressureAnalysisConfigUrl = SystemConfigUrl + 'LoadMapServiceP
 var LoadMapServiceMapIgnoreClickQueryConfigUrl = SystemConfigUrl + 'LoadMapServiceMapIgnoreClickQueryConfig';   //加载点击地图忽略查询配置
 
 //用户接口配置
-var HomeUrl ='/Home/';
+var HomeUrl ='/api/Home/';
 var LoginUrl = HomeUrl + 'Login';       //登录接口
 var LoginOutUrl = HomeUrl + 'LoginOut';     //登出接口
 
